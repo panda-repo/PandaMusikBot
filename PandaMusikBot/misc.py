@@ -5,7 +5,7 @@ import heroku3
 from pyrogram import filters
 
 import config
-from PandaMusikBotcore.mongo import pymongodb
+from PandaMusikBot.core.mongo import pymongodb
 
 from .logging import LOGGER
 
