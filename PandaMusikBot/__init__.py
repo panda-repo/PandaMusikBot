@@ -1,7 +1,7 @@
-from PandaMusikBotcore.bot import PandaBot
-from PandaMusikBotcore.dir import dirr
-from PandaMusikBotcore.git import git
-from PandaMusikBotcore.userbot import Userbot
+from PandaMusikBot.core.bot import PandaBot
+from PandaMusikBot.core.dir import dirr
+from PandaMusikBot.core.git import git
+from PandaMusikBot.core.userbot import Userbot
 from PandaMusikBot.misc import dbb, heroku, sudo
 
 from .logging import LOGGER
@@ -22,7 +22,7 @@ heroku()
 sudo()
 
 # Bot Client
-app = PandaaBot()
+app = PandaBot()
 
 # Assistant Client
 userbot = Userbot()
