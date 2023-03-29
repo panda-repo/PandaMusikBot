@@ -2,7 +2,7 @@ from PandaMusikBotcore.bot import PandaBot
 from PandaMusikBotcore.dir import dirr
 from PandaMusikBotcore.git import git
 from PandaMusikBotcore.userbot import Userbot
-from PandaMusikBotmisc import dbb, heroku, sudo
+from PandaMusikBot.misc import dbb, heroku, sudo
 
 from .logging import LOGGER
 
