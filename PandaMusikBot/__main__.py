@@ -7,10 +7,10 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
 from config import BANNED_USERS
-from ShizukaXMusic import LOGGER, app, userbot
-from PandaMusikBotcore.call import Shizuka
-from PandaMusikBotplugins import ALL_MODULES
-from PandaMusikBotutils.database import get_banned_users, get_gbanned
+from PandaMusikBot import LOGGER, app, userbot
+from PandaMusikBot.core.call import Panda
+from PandaMusikBot.plugins import ALL_MODULES
+from PandaMusikBot.utils.database import get_banned_users, get_gbanned
 
 loop = asyncio.get_event_loop()
 
@@ -23,7 +23,7 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER("ShizukaXMusic").error("Add Pyrogram string session and then try...")
+        LOGGER("PandaMusikBot").error("Add Pyrogram string session and then try...")
     try:
         users = await get_gbanned()
         for user_id in users:
@@ -35,24 +35,24 @@ async def init():
         pass
     await app.start()
     for all_module in ALL_MODULES:
-        importlib.import_module("PandaMusikBotplugins" + all_module)
-    LOGGER("PandaMusikBotplugins").info("Necessary Modules Imported Successfully.")
+        importlib.import_module("PandaMusikBot.plugins" + all_module)
+    LOGGER("PandaMusikBot.plugins").info("Necessary Modules Imported Successfully.")
     await userbot.start()
-    await Shizuka.start()
+    await Panda.start()
     try:
-        await Shizuka.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
+        await Panda.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
     except NoActiveGroupCall:
-        LOGGER("ShizukaXMusic").error(
+        LOGGER("PandaMusikBot").error(
             "[ERROR] - \n\nTurn on group voice chat and don't put it off otherwise I'll stop working thanks."
         )
         sys.exit()
     except:
         pass
-    await Shizuka.decorators()
-    LOGGER("ShizukaXMusic").info("Music Bot Started Successfully")
+    await Panda.decorators()
+    LOGGER("PandaMusikBot").info("Music Bot Started Successfully")
     await idle()
 
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("ShizukaXMusic").info("Stopping Music Bot")
+    LOGGER("PandaMusikBot").info("Stopping Music Bot")
