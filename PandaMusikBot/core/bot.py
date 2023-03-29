@@ -8,7 +8,7 @@ from ..logging import LOGGER
 
 
 
-class ShizukaBot(Client):
+class PandaBot(Client):
     def __init__(self):
         LOGGER(__name__).info(f"Starting Bot...")
         super().__init__(
